@@ -1,6 +1,6 @@
 command -sq zoxide || exit
 
-function z
+function z -d "cd + zoxide"
     if ! set -q argv[1] || test "$argv" = - || test -d "$argv"
         cd $argv
     else

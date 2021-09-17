@@ -9,5 +9,5 @@ function fzf_configure_bindings
     bind \e\cl _fzf_search_git_log
     bind \e\cs _fzf_search_git_status
 
-    bind \el 'fzf_fd_opts=--exact-depth=1 _fzf_search_directory'
+    # bind \e\cf 'fish_commandline_append " &| fzf -m"'
 end

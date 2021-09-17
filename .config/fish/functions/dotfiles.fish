@@ -5,7 +5,7 @@ test -z "$dotfiles" && set -l dotfiles $XDG_CONFIG_HOME/dotfiles
 set -l command git --git-dir $dotfiles
 functions -q __fish_git || source $__fish_data_dir/completions/git.fish
 
-function dotfiles -w "$command" -V command -V dotfiles
+function dotfiles -w "$command" -V command -V dotfiles -d "Manage dotfiles"
     set -l non_opts (string match -v -- '-*' $argv)
     set -l cmd $non_opts[1]
     set -l alias __fish_git_alias_$cmd

@@ -1,6 +1,6 @@
 command -sq rsvg-convert || exit
 
-function svg2icns -a svg
+function svg2icns -a svg -d "Convert SVG to ICNS"
     set iconset (string replace .svg .iconset $svg)
     mkdir $iconset
 

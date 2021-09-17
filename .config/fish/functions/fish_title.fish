@@ -1,8 +1,6 @@
 function fish_title
     # https://github.com/IlanCosman/tide/issues/164
-    if set -q _tide_left_prompt_display_var && ! set -q $_tide_left_prompt_display_var
-        return
-    end
+    set -q "$_tide_prompt_var" || return
 
     if set -q argv[1]
         echo $argv

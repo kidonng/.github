@@ -1,36 +1,56 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
+let
+  mkLink = name: source: pkgs.runCommandLocal name { } ''
+    mkdir -p $out/bin
+    ln -s "${source}" $out/bin/${name}
+  '';
+in
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = [
-    pkgs.bat
-    pkgs.cargo
-    pkgs.curl
-    pkgs.delta
-    pkgs.deno
-    pkgs.dua
-    pkgs.exa
-    pkgs.fd
-    pkgs.fish
-    pkgs.fzf
-    pkgs.gh
-    pkgs.git
-    pkgs.glow
-    pkgs.go
-    pkgs.grc
-    pkgs.less
-    pkgs.nixpkgs-fmt
-    pkgs.nodejs
-    pkgs.p7zip
-    pkgs.ripgrep
-    pkgs.rustc
-    pkgs.timg
-    pkgs.vivid
-    pkgs.yarn
-    pkgs.youtube-dl
-    pkgs.zoxide
+  home.packages = with pkgs; [
+    (writeShellScriptBin "code" ''
+      ELECTRON_RUN_AS_NODE=1 \
+      "/Applications/Visual Studio Code.app/Contents/MacOS/Electron" \
+      "/Applications/Visual Studio Code.app/Contents/Resources/app/out/cli.js" \
+      "$@"
+    '')
+    (mkLink "iina" "/Applications/IINA.app/Contents/MacOS/iina-cli")
+    (mkLink "kitty" "/Applications/kitty.app/Contents/MacOS/kitty")
+    (mkLink "youtube-dl" "${yt-dlp}/bin/yt-dlp")
+    bat
+    delta
+    dua
+    exa
+    fd
+    fish
+    fzf
+    gallery-dl
+    gh
+    git
+    glow
+    grc
+    less
+    nixpkgs-fmt
+    nodePackages.vercel
+    p7zip
+    ripgrep
+    sd
+    timg
+    vivid
+    yt-dlp
+    zoxide
+    # JavaScript #
+    deno
+    nodejs
+    yarn
+    # Rust #
+    # cargo
+    # rust-analyzer
+    # rustc
+    # rustfmt
   ];
 
   # Home Manager needs a bit of information about you and the

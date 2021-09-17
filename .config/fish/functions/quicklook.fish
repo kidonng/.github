@@ -1,5 +1,5 @@
-command -sq qlmanage || exit
+test (uname) = Darwin || exit
 
-function quicklook
+function quicklook -d "macOS Quick Look"
     qlmanage -p $argv &>/dev/null
 end

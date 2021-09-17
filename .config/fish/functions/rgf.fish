@@ -3,7 +3,7 @@ if ! command -sq rg || ! command -sq fzf || ! command -sq bat
 end
 
 # Based on https://github.com/junegunn/fzf/issues/1598#issuecomment-719573480
-function rgf -w rg -d "ripgrep love fzf"
+function rgf -w rg -d "ripgrep + fzf"
     set -q argv[1] || set argv ""
     set -l selection (
         rg --color always -n $argv |

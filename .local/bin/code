@@ -1,5 +1,0 @@
-#!/bin/bash
-ELECTRON_RUN_AS_NODE=1 \
-'/Applications/Visual Studio Code.app/Contents/MacOS/Electron' \
-'/Applications/Visual Studio Code.app/Contents/Resources/app/out/cli.js' \
-"$@"

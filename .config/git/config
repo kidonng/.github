@@ -6,7 +6,6 @@
 	co = checkout
 	cp = cherry-pick
 	di = diff
-	dt = difftool
 	fe = fetch
 	lg = log --oneline --graph
 	me = merge
@@ -23,7 +22,6 @@
 [core]
 	autocrlf = input
     pager = delta
-	sshCommand = /usr/bin/ssh
 [delta]
 	line-numbers = true
 	hunk-header-style = omit

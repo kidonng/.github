@@ -1,4 +1,4 @@
-function get_color
+function get_color -d "Get terminal color"
     set -q argv[1] || set argv (set_color -c)
 
     for color in $argv

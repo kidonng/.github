@@ -8,39 +8,38 @@ abbr di diff
 abbr du du -hs
 abbr tmp mktemp -d
 
-abbr cafe caffeinate
-abbr cap screencapture
+abbr caf caffeinate
 abbr ipc ipconfig getpacket en0
 abbr ldd otool -L
-abbr mfd mdfind
 abbr op open
-abbr pbc pbcopy
-abbr pbp pbpaste
+abbr pc pbcopy
+abbr pp pbpaste
+abbr stat stat -x
 
-abbr dls diskutil list
-abbr dmo sudo diskutil mount
-abbr dum diskutil unmount
+abbr lsd diskutil list
+abbr mo sudo diskutil mount
+abbr um diskutil unmount
 
 abbr hm home-manager
-abbr ncg nix-collect-garbage
 abbr nch nix-channel
 abbr ne nix-env
+abbr ngc nix-collect-garbage
 abbr nr nix run
 abbr ns nix-shell
 
 abbr cat bat -p
 abbr co code
-abbr icat kitty +icat
-abbr md glow -p
-abbr yt youtube-dl
+abbr gl glow -p
 
-abbr dl curl -LOR -C -
-abbr get curl -L
-abbr ip4 curl -sS4 ip.sb
-abbr ip6 curl -sS6 ip.sb
+abbr cl curl -L
+abbr dl curl -LOR -C - --retry 5
+abbr gdl gallery-dl
+abbr ydl yt-dlp
+abbr ip4 curl -4 ip.sb
+abbr ip6 curl -6 ip.sb
 
+abbr la exa -la
 abbr ls exa
-abbr la exa -a
 abbr ll exa -l
 
 # https://github.com/fish-shell/fish-shell/blob/9f4255ed76683d6772f354c1fb818a1655e877a0/share/completions/git.fish#L582-L604
@@ -49,4 +48,3 @@ git config --global --get-regexp "alias\..*" | string replace alias. "" | while 
 end
 
 abbr ga git add
-abbr grm git rm

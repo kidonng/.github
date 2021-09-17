@@ -1,16 +1,15 @@
 command -sq nix || exit
 
-function nrun
-    set -l opts
-    set -l pkgs $argv[1]
-    set -l args $argv
+# Use `nix shell` after Nix 2.4
+function nrun -d "nix run"
+    set -l pkg $argv[1]
+    set -l cmd $argv
 
     if set -l sep (contains -i -- -- $argv)
-        set -l index (math $sep - 1)
-        set opts (string match -- "-*" $argv[..$index])
-        set pkgs (string match -v -- "-*" $argv[..$index])
-        set args $argv[(math $sep + 1)..]
+        set pkg $argv[..(math $sep - 1)]
+        set cmd $argv[(math $sep + 1)..]
+        test (count $cmd) = 0 && set cmd fish
     end
 
-    nix run $opts nixpkgs.$pkgs -c $args
+    nix run nixpkgs.$pkg -c $cmd
 end
