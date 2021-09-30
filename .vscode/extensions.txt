@@ -1,4 +1,5 @@
 aliariff.auto-add-brackets
+arcanis.vscode-zipfs
 bmalehorn.vscode-fish
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
