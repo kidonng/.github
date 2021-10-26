@@ -10,7 +10,7 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; with darwin; [
     (writeShellScriptBin "code" ''
       ELECTRON_RUN_AS_NODE=1 \
       "/Applications/Visual Studio Code.app/Contents/MacOS/Electron" \
@@ -27,7 +27,6 @@ in
     fd
     fish
     fzf
-    gallery-dl
     gh
     git
     glow
@@ -37,20 +36,14 @@ in
     nodePackages.vercel
     p7zip
     ripgrep
-    sd
     timg
+    trash
     vivid
     yt-dlp
     zoxide
-    # JavaScript #
     deno
     nodejs
     yarn
-    # Rust #
-    # cargo
-    # rust-analyzer
-    # rustc
-    # rustfmt
   ];
 
   # Home Manager needs a bit of information about you and the

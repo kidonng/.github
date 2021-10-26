@@ -10,9 +10,9 @@ function fdf -w fd -d "fd + fzf"
 
     set -q selection[1] || return
 
-    if status -c
-        echo $selection
-    else
+    if isatty stdout
         commandline -i -- (string escape -- $selection | string join ' ')
+    else
+        printf "%s\n" $selection
     end
 end

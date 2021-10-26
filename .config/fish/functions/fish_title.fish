@@ -1,3 +1,8 @@
+if ! set -q _tide_var_list
+    source $__fish_data_dir/functions/fish_title.fish
+    exit
+end
+
 function fish_title
     # https://github.com/IlanCosman/tide/issues/164
     set -q "$_tide_prompt_var" || return

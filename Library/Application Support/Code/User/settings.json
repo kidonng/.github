@@ -9,10 +9,10 @@
   "editor.fontSize": 13,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.guides.indentation": false,
   "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "off",
   "editor.minimap.enabled": false,
-  "editor.renderIndentGuides": false,
   "editor.suggest.preview": true,
   "extensions.ignoreRecommendations": true,
   "files.autoGuessEncoding": true,
@@ -20,10 +20,15 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "formattingToggle.affects": ["formatOnPaste", "formatOnSave"],
+  "formattingToggle.affects": [
+    "editor.formatOnPaste",
+    "editor.formatOnSave",
+    "files.insertFinalNewline",
+    "files.trimFinalNewlines",
+    "files.trimTrailingWhitespace",
+  ],
   "git.autoStash": true,
   "git.enableSmartCommit": true,
-  "git.showPushSuccessNotification": true,
   "gitlens.statusBar.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.enabled": false,
@@ -32,15 +37,15 @@
   "npm.scriptExplorerAction": "run",
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "prettier.tabWidth": 4,
   "search.smartCase": true,
   "tabnine.experimentalAutoImports": true,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "terminal.external.osxExec": "kitty.app",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.enableBell": true,
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.tabs.enabled": true,
-  "terminal.integrated.titleMode": "sequence",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.showReleaseNotes": false,
   "vim.hlsearch": true,
@@ -50,12 +55,12 @@
   "workbench.colorCustomizations": {
     "[Tokyo Night Light]": {
       // https://github.com/enkia/tokyo-night-vscode-theme/pull/34
-      "terminal.selectionBackground": "#d5d6db"
-    }
+      "terminal.selectionBackground": "#d5d6db",
+    },
   },
   "workbench.colorTheme": "Tokyo Night Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
   "workbench.preferredLightColorTheme": "Tokyo Night Light",
-  "workbench.tree.renderIndentGuides": "none"
+  "workbench.tree.renderIndentGuides": "none",
 }

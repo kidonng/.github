@@ -14,6 +14,7 @@ function sdf -w sd -d "sd + fzf"
     set -l files
 
     for file in $argv[$count..]
+        echo Processing (set_color -o)$file(set_color normal)
         test -d $file && continue
         command diff $file (sd -p $args $file | psub) >/dev/null || set -a files $file
     end
@@ -21,6 +22,5 @@ function sdf -w sd -d "sd + fzf"
     set -l preview "diff -u {} (sd -p $args {} | psub)"
     command -sq delta && set preview "$preview | delta"
 
-    set -l selection (printf "%s\n" $files | fzf -m --preview $preview)
-    test (count $selection) != 0 && sd $args $selection
+    set -l selection (printf "%s\n" $files | fzf -m --preview $preview) && sd $args $selection
 end

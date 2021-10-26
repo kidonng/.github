@@ -24,10 +24,8 @@ function switch_theme
 
     ln -sf ~/.config/git/config.theme{.$theme,}
 
-    if command -sq kitty
-        ln -sf ~/.config/kitty/{TokyoNight-$theme,theme}.conf
-        kitty @set-colors -a -c ~/.config/kitty/theme.conf
-    end
+    # --reload-in=none: https://github.com/kovidgoyal/kitty/issues/3952#issuecomment-901588238
+    command -sq kitty && kitty +kitten themes --reload-in=none Tokyo Night-$theme
 
     test (uname) = Darwin && osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to '$dark
 end

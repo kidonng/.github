@@ -6,9 +6,8 @@ function exa
     if isatty stdout
         command exa $argv
     else
-        # https://github.com/ogham/exa/issues/955
-        set -p argv --color never
-        # https://github.com/ogham/exa/issues/879#issuecomment-845233451
-        COLUMNS=1 command exa $argv
+        # COLUMNS=1: https://github.com/ogham/exa/issues/879#issuecomment-845233451
+        # --color never: https://github.com/ogham/exa/issues/955
+        COLUMNS=1 command exa --color never $argv
     end
 end

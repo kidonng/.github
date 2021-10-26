@@ -4,6 +4,6 @@ if ! command -sq grc || ! command -sq $cmd
     exit
 end
 
-function $cmd -V cmd -d "$cmd + grc"
+function $cmd -d "$cmd + grc" -V cmd
     grc $cmd $argv
 end

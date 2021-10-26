@@ -1,6 +1,6 @@
 abbr dot dotfiles
 abbr ql quicklook
-abbr rm trash
+abbr rm trash -F
 abbr sha sha256sum
 
 abbr df df -h
@@ -33,7 +33,6 @@ abbr gl glow -p
 
 abbr cl curl -L
 abbr dl curl -LOR -C - --retry 5
-abbr gdl gallery-dl
 abbr ydl yt-dlp
 abbr ip4 curl -4 ip.sb
 abbr ip6 curl -6 ip.sb

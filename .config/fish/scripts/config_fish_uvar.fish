@@ -1,5 +1,5 @@
 set -Ux EDITOR code -w
-set -Ux FZF_DEFAULT_OPTS --cycle --reverse --preview-window wrap
+set -Ux FZF_DEFAULT_OPTS --cycle --reverse --preview-window wrap --prompt '"❯ "' --marker ✔
 
 set -Ux LESS -R -i -M --incsearch
 set -Ux LESS_TERMCAP_md (set_color -o)(set_color blue)
@@ -12,4 +12,4 @@ set -U fish_features qmark-noglob
 set -U fish_greeting
 
 set -U fzf_preview_file_cmd preview
-set -U fzf_preview_dir_cmd exa --color always -T
+set -U fzf_preview_dir_cmd exa --color always -T -L 3
