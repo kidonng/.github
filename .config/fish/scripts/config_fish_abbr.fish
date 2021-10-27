@@ -21,11 +21,10 @@ abbr mo sudo diskutil mount
 abbr um diskutil unmount
 
 abbr hm home-manager
-abbr nch nix-channel
 abbr ne nix-env
 abbr ngc nix-collect-garbage
-abbr nr nix run
-abbr ns nix-shell
+abbr nr "nix run nixpkgs/nixpkgs-unstable#"
+abbr ns "nix shell nixpkgs/nixpkgs-unstable#"
 
 abbr cat bat -p
 abbr co code
