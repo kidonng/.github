@@ -4,7 +4,7 @@
   "diffEditor.renderSideBySide": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.find.autoFindInSelection": "multiline",
-  "editor.fontFamily": "JetBrains Mono, JetBrainsMono Nerd Font, monospace",
+  "editor.fontFamily": "JetBrains Mono, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.formatOnPaste": true,
@@ -52,12 +52,6 @@
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "native",
   "workbench.activityBar.visible": false,
-  "workbench.colorCustomizations": {
-    "[Tokyo Night Light]": {
-      // https://github.com/enkia/tokyo-night-vscode-theme/pull/34
-      "terminal.selectionBackground": "#d5d6db",
-    },
-  },
   "workbench.colorTheme": "Tokyo Night Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Tokyo Night Storm",

@@ -1,4 +1,4 @@
-# [`dotfiles.fish`](../.config/fish/functions/dotfiles.fish)
+# [`dotfiles.fish`](../.archive/.config/fish/functions/dotfiles.fish)
 
 Simple Git wrapper (with completions) for managing dotfiles.
 

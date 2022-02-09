@@ -1,15 +1,13 @@
-function rename
-    set -l old_pattern $argv[1]
-    set -l new_pattern $argv[2]
-    set -l files $argv[3..]
+function rename -a old_pattern new_pattern
+    argparse q/quiet -- $argv || return
 
-    for file in $files
-        if ! string match -- "*$old_pattern*" $file
-            echo rename: (set_color -o)$file(set_color normal) does not match the old pattern >&2
+    for file in $argv[3..]
+        if ! string match -rq -- $old_pattern $file
+            set -q _flag_quiet || echo rename: (set_color -o)$file(set_color normal) does not match the old pattern >&2
             continue
         end
 
-        set -l new_file (string replace -- $old_pattern $new_pattern $file)
+        set -l new_file (string replace -r -- $old_pattern $new_pattern $file)
         mv $file $new_file
     end
 end

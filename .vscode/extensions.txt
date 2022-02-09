@@ -1,7 +1,6 @@
 aliariff.auto-add-brackets
 arcanis.vscode-zipfs
 bmalehorn.vscode-fish
-bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 denoland.vscode-deno
 eamodio.gitlens
@@ -17,13 +16,16 @@ iocave.monkey-patch
 jnoortheen.nix-ide
 johnsoncodehk.volar
 meganrogge.template-string-converter
+ojkwon.vscode-activedocumentindicator
 PKief.material-icon-theme
 pucelle.vscode-css-navigation
 quicktype.quicktype
 samverschueren.linter-xo
 streetsidesoftware.code-spell-checker
 TabNine.tabnine-vscode
+tamasfe.even-better-toml
 tombonnike.vscode-status-bar-format-toggle
+voorjaar.windicss-intellisense
 vscodevim.vim
 WakaTime.vscode-wakatime
 yzhang.markdown-all-in-one

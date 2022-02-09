@@ -1,3 +1,4 @@
+# Remove when Fish 3.4 releases
 # https://github.com/fish-shell/fish-shell/issues/4570
 function _complete
     if ! commandline -P

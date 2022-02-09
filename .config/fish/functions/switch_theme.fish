@@ -22,10 +22,7 @@ function switch_theme
         end
     end
 
-    ln -sf ~/.config/git/config.theme{.$theme,}
+    command -sq kitty && kitty +kitten themes --cache-age 9999 Tokyo Night-$theme
 
-    # --reload-in=none: https://github.com/kovidgoyal/kitty/issues/3952#issuecomment-901588238
-    command -sq kitty && kitty +kitten themes --reload-in=none Tokyo Night-$theme
-
-    test (uname) = Darwin && osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to '$dark
+    command -sq osascript && osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to '$dark
 end

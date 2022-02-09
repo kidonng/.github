@@ -8,6 +8,7 @@ function fzf_configure_bindings
     bind \cv $_fzf_search_vars_command
     bind \e\cl _fzf_search_git_log
     bind \e\cs _fzf_search_git_status
+    bind \cp _fzf_search_processes
 
-    # bind \e\cf 'fish_commandline_append " &| fzf -m"'
+    bind \ef 'fish_commandline_append " &| fzf -m"'
 end

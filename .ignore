@@ -1,1 +1,10 @@
-.Trash
+.git
+*cache
+/.config/dotfiles
+/.local/share/fish/plug
+/.npm
+/.Trash
+/.vscode
+/.yarn
+/Library/Caches
+node_modules

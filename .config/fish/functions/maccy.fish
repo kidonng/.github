@@ -22,6 +22,6 @@ function maccy -V db -d "Maccy + fzf"
     if isatty stdout
         commandline -i -- $selection
     else
-        printf "%b" (string join -- "\n" $selection)
+        printf "%s\n" $selection
     end
 end

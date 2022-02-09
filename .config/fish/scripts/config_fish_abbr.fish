@@ -1,48 +1,76 @@
-abbr dot dotfiles
-abbr ql quicklook
+abbr ap argparse
+abbr cmd command
+abbr cmdl commandline
+abbr com complete
+abbr con continue
+abbr ct count
+abbr fun function
+abbr hd history delete
+abbr pf printf
+abbr pfn printf "%s\n"
+abbr ret return
+abbr rp realpath
+abbr sc set_color
+
+abbr join string join
+abbr mat string match
+abbr rep string replace
+abbr split string split
+abbr trim string trim
+
+abbr base basename
+abbr dir dirname
+abbr nop ALL_PROXY=
+abbr psa ps aux
 abbr rm trash -F
-abbr sha sha256sum
+abbr sha sha256
 
 abbr df df -h
 abbr di diff
-abbr du du -hs
+abbr mk mkdir -p
 abbr tmp mktemp -d
+abbr to touch
 
 abbr caf caffeinate
-abbr ipc ipconfig getpacket en0
 abbr ldd otool -L
 abbr op open
 abbr pc pbcopy
 abbr pp pbpaste
+abbr ql qlmanage -p
 abbr stat stat -x
 
-abbr lsd diskutil list
-abbr mo sudo diskutil mount
-abbr um diskutil unmount
+abbr dul diskutil list
+abbr dum sudo diskutil mount
+abbr duu diskutil unmount
 
-abbr hm home-manager
-abbr ne nix-env
-abbr ngc nix-collect-garbage
-abbr nr "nix run nixpkgs/nixpkgs-unstable#"
-abbr ns "nix shell nixpkgs/nixpkgs-unstable#"
+abbr nb nix build
+abbr nd nix develop
+abbr ngc nix store gc
+abbr np nix profile
+abbr nr nix run
+abbr ns nix shell
 
 abbr cat bat -p
+abbr du dust
 abbr co code
 abbr gl glow -p
+abbr vi nvim
 
+abbr ci curl -I
 abbr cl curl -L
-abbr dl curl -LOR -C - --retry 5
-abbr ydl yt-dlp
-abbr ip4 curl -4 ip.sb
-abbr ip6 curl -6 ip.sb
+abbr dl curl -LORC - --retry 5
 
 abbr la exa -la
-abbr ls exa
 abbr ll exa -l
+abbr ls exa
 
-# https://github.com/fish-shell/fish-shell/blob/9f4255ed76683d6772f354c1fb818a1655e877a0/share/completions/git.fish#L582-L604
+abbr dot "git --git-dir ~/.config/dotfiles"
+abbr ga git add
+# Adapated from https://github.com/fish-shell/fish-shell/blob/9f4255ed76683d6772f354c1fb818a1655e877a0/share/completions/git.fish#L582-L604
 git config --global --get-regexp "alias\..*" | string replace alias. "" | while read -l alias command
     abbr g$alias git $command
 end
 
-abbr ga git add
+for lang in html css json
+    abbr $lang "prettier --parser $lang | bat -l $lang"
+end

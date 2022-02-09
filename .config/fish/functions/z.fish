@@ -5,7 +5,7 @@ function z -d "cd + zoxide"
         case "" -
             cd $argv
         case "*"
-            if test -d $argv
+            if test -d "$argv"
                 cd $argv
             else
                 set dir (zoxide query --exclude $PWD -- $argv) && cd $dir

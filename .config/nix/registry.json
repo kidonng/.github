@@ -1,0 +1,16 @@
+{
+  "flakes": [
+    {
+      "from": {
+        "id": "p",
+        "type": "indirect"
+      },
+      "to": {
+        "id": "nixpkgs",
+        "ref": "nixpkgs-unstable",
+        "type": "indirect"
+      }
+    }
+  ],
+  "version": 2
+}

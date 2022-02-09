@@ -17,6 +17,8 @@ function sef -w rg -d "sed + fzf"
     set -l files $non_opts[3..]
 
     set -l args s/$find/$replace/g
-    set -l selection (rg --files-with-matches $opts $find $files |
-        fzf -m --preview "diff -u {} (sed $args {} | psub) | delta") && sed -i '' $args $selection
+    set -l selection (
+        rg -l $opts $find $files |
+        fzf -m --preview "diff -u {} (sed -E $args {} | psub) | delta --features no-file-decoration"
+    ) && sed -Ei '' $args $selection
 end

@@ -1,4 +1,4 @@
-test (uname) = Darwin || exit
+command -sq osascript || exit
 
 # https://stackoverflow.com/a/34558042
 function malias -a source link -d "Create macOS alias"

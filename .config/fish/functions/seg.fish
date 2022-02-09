@@ -16,5 +16,8 @@ function seg -w rg -d "sed + ripgrep"
     set -l replace $non_opts[2]
     set -l files $non_opts[3..]
 
-    sed -i '' s/$find/$replace/g (rg --files-with-matches $opts $find $files)
+    set -l args s/$find/$replace/g
+    set -l selection (
+        rg -l $opts $find $files
+    ) && sed -Ei '' $args $selection
 end

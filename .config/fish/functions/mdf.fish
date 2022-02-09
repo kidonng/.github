@@ -1,4 +1,4 @@
-if test (uname) != Darwin || ! command -sq fzf || ! functions -q _fzf_preview_file
+if ! command -sq mdfind || ! command -sq fzf || ! functions -q _fzf_preview_file
     exit
 end
 

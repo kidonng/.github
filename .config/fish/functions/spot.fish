@@ -1,9 +1,4 @@
-test (uname) = Darwin || exit
-
-# https://mattprice.me/2020/programmatically-modify-spotlight-ignore/
-function _spot_buddy
-    sudo /usr/libexec/PlistBuddy -c "$argv" /System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist
-end
+functions -q _spot_buddy || exit
 
 function spot -d "Manage Spotlight exclusions"
     argparse a/add r/remove -- $argv || return
@@ -35,6 +30,10 @@ function spot -d "Manage Spotlight exclusions"
             _spot_buddy Delete :Exclusions:(math $index - 1) string
         end
     else
-        string replace $HOME "~" $list
+        if isatty stdout
+            string replace $HOME "~" $list
+        else
+            printf "%s\n" $list
+        end
     end
 end

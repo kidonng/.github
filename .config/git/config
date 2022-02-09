@@ -5,13 +5,14 @@
 	cl = clone
 	co = checkout
 	cp = cherry-pick
-	di = diff
+	di = diff -b
 	fe = fetch
 	lg = log --oneline --graph
 	me = merge
 	ps = push
 	pu = pull
 	rb = rebase
+	rbi = rebase -i --committer-date-is-author-date
 	re = restore
 	rs = reset
 	rt = remote
@@ -22,18 +23,25 @@
 [core]
 	autocrlf = input
     pager = delta
+[credential "https://github.com"]
+	helper = !gh auth git-credential
 [delta]
-	line-numbers = true
+	features = file-decoration
 	hunk-header-style = omit
+	# https://github.com/dandavison/delta/issues/895
+	syntax-theme = OneHalfLight
+[delta "file-decoration"]
+	file-decoration-style = blue ol ul
+[delta "no-file-decoration"]
+	file-decoration-style = omit
 [diff]
 	algorithm = patience
+	colorMoved = default
 [fetch]
 	prune = true
-[include]
-    path = config.theme
 [pull]
 	rebase = true
 	ff = only
 [user]
 	name = Kid
-	email = kidonng@gmail.com
+	email = hi@xuann.wang

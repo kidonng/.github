@@ -1,4 +1,4 @@
-if ! set -q _tide_var_list
+if ! set -q tide_pwd_markers
     source $__fish_data_dir/functions/fish_title.fish
     exit
 end

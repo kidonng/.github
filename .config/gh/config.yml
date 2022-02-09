@@ -1,3 +1,4 @@
 git_protocol: https
 aliases:
     co: pr checkout
+    cl: repo clone
