@@ -20,7 +20,7 @@ abbr trim string trim
 
 abbr base basename
 abbr dir dirname
-abbr nop ALL_PROXY=
+abbr nop ALL_PROXY= HTTPS_PROXY=
 abbr psa ps aux
 abbr rm trash -F
 abbr sha sha256
@@ -43,21 +43,13 @@ abbr dul diskutil list
 abbr dum sudo diskutil mount
 abbr duu diskutil unmount
 
-abbr nb nix build
-abbr nd nix develop
-abbr ngc nix store gc
-abbr np nix profile
-abbr nr nix run
-abbr ns nix shell
-
 abbr cat bat -p
 abbr du dust
 abbr co code
 abbr gl glow -p
 abbr vi nvim
 
-abbr ci curl -I
-abbr cl curl -L
+abbr cl curl -sSL
 abbr dl curl -LORC - --retry 5
 
 abbr la exa -la
@@ -69,8 +61,4 @@ abbr ga git add
 # Adapated from https://github.com/fish-shell/fish-shell/blob/9f4255ed76683d6772f354c1fb818a1655e877a0/share/completions/git.fish#L582-L604
 git config --global --get-regexp "alias\..*" | string replace alias. "" | while read -l alias command
     abbr g$alias git $command
-end
-
-for lang in html css json
-    abbr $lang "prettier --parser $lang | bat -l $lang"
 end

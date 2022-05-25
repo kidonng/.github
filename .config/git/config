@@ -28,10 +28,9 @@
 [delta]
 	features = file-decoration
 	hunk-header-style = omit
-	# https://github.com/dandavison/delta/issues/895
-	syntax-theme = OneHalfLight
 [delta "file-decoration"]
 	file-decoration-style = blue ol ul
+# Used by `$fzf_git_log_opts`
 [delta "no-file-decoration"]
 	file-decoration-style = omit
 [diff]

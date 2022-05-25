@@ -1,12 +1,4 @@
-if ! set -q tide_pwd_markers
-    source $__fish_data_dir/functions/fish_title.fish
-    exit
-end
-
 function fish_title
-    # https://github.com/IlanCosman/tide/issues/164
-    set -q "$_tide_prompt_var" || return
-
     if set -q argv[1]
         echo $argv
         return
@@ -20,6 +12,8 @@ function fish_title
         case "*"
             set -l sections (string split / $PWD)
             set -l current $sections[-1]
+            # https://github.com/IlanCosman/tide/blob/f24de1efaa1d9eb4ff3bad036d1987751dba99cb/functions/tide/configure/configs/classic.fish#L76
+            set -l tide_pwd_markers .bzr .citc .git .hg .node-version .python-version .ruby-version .shorten_folder_marker .svn .terraform Cargo.toml composer.json CVS go.mod package.json
 
             while test (count $sections) != 1
                 for marker in (string join / $sections)/$tide_pwd_markers

@@ -1,16 +1,15 @@
 function switch_theme
-    set -l dark
-
-    if test "$theme" = light
-        set -U theme dark
-        set dark true
+    if test "$BAT_THEME" = "Tokyo Night Day"
+        set -f theme dark
+        set -f dark true
+        set -Ux BAT_THEME "Tokyo Night Storm"
     else
-        set -U theme light
-        set dark false
+        set -f theme light
+        set -f dark false
+        set -Ux BAT_THEME "Tokyo Night Day"
     end
 
-    command -sq bat && set -Ux BAT_THEME TokyoNight-$theme
-    command -sq vivid && set -Ux LS_COLORS (vivid generate TokyoNight-$theme)
+    command -sq vivid && set -Ux LS_COLORS (vivid generate $BAT_THEME)
 
     if command -sq fzf
         set -l fzf_opt --color=$theme,gutter:-1
@@ -22,7 +21,7 @@ function switch_theme
         end
     end
 
-    command -sq kitty && kitty +kitten themes --cache-age 9999 Tokyo Night-$theme
+    command -sq kitty && kitty +kitten themes --cache-age 9999 $BAT_THEME
 
     command -sq osascript && osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to '$dark
 end

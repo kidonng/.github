@@ -1,0 +1,17 @@
+[git_branch]
+symbol = " "
+
+[shlvl]
+disabled = false
+symbol = " "
+
+# [status]
+# disabled = false
+# pipestatus = true
+# map_symbol = true
+# success_symbol = "✓ "
+# symbol = "✗ "
+
+# https://github.com/starship/starship/issues/2627#issuecomment-917798524
+[nodejs]
+detect_extensions = []

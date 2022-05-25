@@ -7,8 +7,6 @@ end
 
 status -i || exit
 
-# Remove when Fish 3.4 releases
-bind \t _complete
 # Meta + Z
 bind \e\[122\;9u undo
 # Meta + Shift + Z
@@ -26,7 +24,10 @@ if functions -q _fzf_search_directory
     bind \eL "begin; set -lx fzf_fd_opts --exact-depth 1 -H; _fzf_search_directory; end"
 end
 
-set -uq fish_private_mode && set -x fish_private_mode $fish_private_mode
+# set -uq fish_private_mode && set -x fish_private_mode $fish_private_mode
+for path in ~/.local/bin ~/.deno/bin /usr/local/opt/{curl,ffmpeg@4}/bin /usr/local/sbin
+    test -e $path && set -ga fish_user_paths $path
+end
 
 if set -q KITTY_INSTALLATION_DIR
     set -g KITTY_SHELL_INTEGRATION no-cursor no-title

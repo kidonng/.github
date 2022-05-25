@@ -14,11 +14,5 @@ function rgf -w rg -d "ripgrep + fzf"
         string split -f 1 :
     )
 
-    set -q selection[1] || return
-
-    if isatty stdout
-        commandline -i -- (string escape -- $selection | string join ' ')
-    else
-        printf "%s\n" $selection
-    end
+    set -q selection[1] && printf "%s\n" $selection
 end

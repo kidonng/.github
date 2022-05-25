@@ -1,14 +1,15 @@
-# Template: https://github.com/sharkdp/vivid/blob/56e3f49042ec26de56a68575ac0fe122b017b3c8/themes/one-dark.yml
+# Template: https://github.com/sharkdp/vivid/blob/50efc10495236025b528f5e33041cb45b11dfadc/themes/one-dark.yml
 # Palette: https://github.com/folke/tokyonight.nvim/blob/529e6d9f325c82c0b40f8d8b329c6c310a6114c3/extras/kitty_tokyonight_storm.conf
 
 colors:
   background_color: '24283b'
+  # color0 - color6
   white: '1D202F'
   red: 'f7768e'
   green: '9ece6a'
   yellow: 'e0af68'
   blue: '7aa2f7'
-  magenta: 'bb9af7'
+  pink: 'bb9af7'
   cyan: '7dcfff'
 
   black: '000000'
@@ -17,25 +18,17 @@ colors:
   darkergray: '333333'
 
 core:
+  normal_text: {}
   regular_file: {}
+  reset_to_normal: {}
 
   directory:
     foreground: blue
-    font-style: bold
-
-  executable_file:
-    foreground: red
-    font-style: bold
 
   symlink:
-    foreground: magenta
+    foreground: pink
 
-  broken_symlink:
-    foreground: black
-    background: red
-  missing_symlink_target:
-    foreground: black
-    background: red
+  multi_hard_link: {}
 
   fifo:
     foreground: black
@@ -43,27 +36,43 @@ core:
 
   socket:
     foreground: black
-    background: magenta
+    background: pink
 
-  character_device:
-    foreground: magenta
-    background: darkergray
+  door:
+    foreground: black
+    background: pink
 
   block_device:
     foreground: cyan
     background: darkergray
 
-  normal_text:
-    {}
+  character_device:
+    foreground: pink
+    background: darkergray
 
-  other_writable:
-    {}
+  broken_symlink:
+    foreground: black
+    background: red
 
-  sticky:
-    {}
+  missing_symlink_target:
+    foreground: black
+    background: red
 
-  sticky_other_writable:
-    {}
+  setuid: {}
+
+  setgid: {}
+
+  file_with_capability: {}
+
+  sticky_other_writable: {}
+
+  other_writable: {}
+
+  sticky: {}
+
+  executable_file:
+    foreground: red
+    font-style: bold
 
 text:
   special:
@@ -96,7 +105,7 @@ programming:
       foreground: green
 
 media:
-  foreground: magenta
+  foreground: pink
 
 office:
   foreground: red

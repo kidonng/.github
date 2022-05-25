@@ -8,7 +8,7 @@ function z -d "cd + zoxide"
             if test -d "$argv"
                 cd $argv
             else
-                set dir (zoxide query --exclude $PWD -- $argv) && cd $dir
+                set -l dir (zoxide query --exclude $PWD -- $argv) && cd $dir
             end
     end
 end

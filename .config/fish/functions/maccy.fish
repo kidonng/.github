@@ -17,11 +17,5 @@ function maccy -V db -d "Maccy + fzf"
         fzf --read0 -m --tiebreak index --preview "echo {}" --preview-window bottom:3
     )
 
-    set -q selection[1] || return
-
-    if isatty stdout
-        commandline -i -- $selection
-    else
-        printf "%s\n" $selection
-    end
+    set -q selection[1] && printf "%s\n" $selection
 end

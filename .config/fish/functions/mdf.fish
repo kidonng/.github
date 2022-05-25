@@ -13,11 +13,5 @@ function mdf -w mdfind -d "mdfind + fzf"
         fzf -m --preview "_fzf_preview_file {}"
     )
 
-    set -q selection[1] || return
-
-    if isatty stdout
-        commandline -i -- (string escape -- $selection | string join ' ')
-    else
-        printf "%s\n" $selection
-    end
+    set -q selection[1] && printf "%s\n" $selection
 end

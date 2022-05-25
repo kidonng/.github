@@ -1,4 +1,6 @@
 aliariff.auto-add-brackets
+antfu.file-nesting
+antfu.smart-clicks
 arcanis.vscode-zipfs
 bmalehorn.vscode-fish
 dbaeumer.vscode-eslint
@@ -16,7 +18,6 @@ iocave.monkey-patch
 jnoortheen.nix-ide
 johnsoncodehk.volar
 meganrogge.template-string-converter
-ojkwon.vscode-activedocumentindicator
 PKief.material-icon-theme
 pucelle.vscode-css-navigation
 quicktype.quicktype

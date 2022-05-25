@@ -1,4 +1,4 @@
-if ! command -s sed || ! command -s rg || ! command -s fzf
+if ! command -sq sed || ! command -sq rg || ! command -sq fzf
     exit
 end
 
