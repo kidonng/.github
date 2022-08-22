@@ -1,6 +1,6 @@
-if ! command --query rg || ! command --query fzf
-    exit
-end
+command --query rg
+and command --query fzf
+or exit
 
 # Inspired by https://github.com/ms-jpq/sad
 function sef --wraps rg --description "sed + ripgrep + fzf"

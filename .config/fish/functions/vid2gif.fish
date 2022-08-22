@@ -1,6 +1,6 @@
-if ! command --query ffmpeg || ! command --query gifski
-    exit
-end
+command --query ffmpeg
+and command --query gifski
+or exit
 
 function vid2gif --wraps gifski --description "Convert video to GIF"
     set --local vid $argv[-1]

@@ -1,6 +1,6 @@
-if ! command --query prettier || ! command --query bat
-    exit
-end
+command --query prettier
+and command --query bat
+or exit
 
 set --local cmd (status basename | path change-extension "")
 

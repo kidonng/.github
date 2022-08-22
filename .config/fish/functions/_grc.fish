@@ -1,8 +1,8 @@
 set --local cmd (status basename | path change-extension "")
 
-if ! command --query grc || ! command --query $cmd
-    exit
-end
+command --query grc
+and command --query $cmd
+or exit
 
 function $cmd --description "$cmd + grc" --inherit-variable cmd
     grc $cmd $argv

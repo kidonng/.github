@@ -1,6 +1,6 @@
-if ! command --query deno || ! command --query bat
-    exit
-end
+command --query deno
+and command --query bat
+or exit
 
 set --local cmd (status basename | path change-extension "")
 

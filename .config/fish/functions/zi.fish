@@ -1,6 +1,6 @@
-if ! command --query zoxide || ! command --query fzf
-    exit
-end
+command --query zoxide
+and command --query fzf
+or exit
 
 function zi --description "zoxide + fzf"
     set --local dir (

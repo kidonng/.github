@@ -1,8 +1,8 @@
-if ! command --query file || ! command --query base64
-    exit
-end
+command --query file
+and command --query base64
+or exit
 
-function img2b64 --argument-names file
-    set --local mime (file -b --mime-type $file)
-    echo "data:$mime;base64,"(base64 <$file)
+function img2b64
+    # Do not use `openssl base64` which wraps output
+    echo "data:"(file --brief --mime-type $argv)";base64,"(base64 $file)
 end

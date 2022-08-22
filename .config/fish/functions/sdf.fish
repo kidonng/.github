@@ -1,6 +1,6 @@
-if ! command --query sd || ! command --query fzf
-    exit
-end
+command --query sd
+and command --query fzf
+or exit
 
 # Inspired by https://github.com/ms-jpq/sad
 function sdf --wraps sd --description "sd + fzf"

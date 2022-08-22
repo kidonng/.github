@@ -1,6 +1,7 @@
-if ! command --query fd || ! command --query fzf || ! functions --query _fzf_preview_file
-    exit
-end
+command --query fd
+and command --query fzf
+and functions --query _fzf_preview_file
+or exit
 
 function fdf --wraps fd --description "fd + fzf"
     test (count $argv) -lt 2 && set --prepend argv --strip-cwd-prefix

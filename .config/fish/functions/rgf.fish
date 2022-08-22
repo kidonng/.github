@@ -1,6 +1,7 @@
-if ! command --query rg || ! command --query fzf || ! command --query bat
-    exit
-end
+command --query rg
+and command --query fzf
+and command --query bat
+or exit
 
 # Based on https://github.com/junegunn/fzf/issues/1598#issuecomment-719573480
 function rgf --wraps rg --description "ripgrep + fzf"
