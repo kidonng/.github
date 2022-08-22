@@ -1,9 +1,9 @@
-set -l cmd (string replace .fish "" (status basename))
+set --local cmd (status basename | path change-extension "")
 
-if ! command -sq grc || ! command -sq $cmd
+if ! command --query grc || ! command --query $cmd
     exit
 end
 
-function $cmd -d "$cmd + grc" -V cmd
+function $cmd --description "$cmd + grc" --inherit-variable cmd
     grc $cmd $argv
 end

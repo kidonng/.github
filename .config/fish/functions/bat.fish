@@ -1,9 +1,10 @@
-command -sq bat || exit
+command --query bat || exit
 
 function bat
-    test "$argv[1]" = cache || set -p argv --italic-text always
+    test "$argv[1]" = cache || set --prepend argv --italic-text always
 
-    # https://github.com/sharkdp/bat/blob/bef0bf16542c9e4ac20dae9153e75eeb402b3bc0/src/syntax_mapping.rs#L114-L115
-    set -lx XDG_CONFIG_HOME ~/.config
-    command bat $argv
+    command bat \
+        --map-syntax "*.astro:HTML" \
+        --map-syntax "*.njk:HTML" \
+        $argv
 end

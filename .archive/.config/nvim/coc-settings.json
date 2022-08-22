@@ -1,6 +1,0 @@
-{
-  "explorer.icon.enableNerdfont": true,
-  "list.source.grep.args": ["--smart-case"],
-  "session.directory": "~/.local/share/nvim/sessions",
-  "suggest.noselect": false
-}

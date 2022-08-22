@@ -1,1 +1,1 @@
-complete get_color -x -a "(set_color -c)"
+complete get_color --exclusive -a "(set_color --print-colors)"

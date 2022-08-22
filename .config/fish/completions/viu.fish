@@ -1,4 +1,4 @@
-complete viu -x -l help -d Help
+complete viu --exclusive -l help -d Help
 complete viu -s b -l blocks -d "Force block output"
 complete viu -s m -l mirror -d "Display a mirror of the original image"
 complete viu -s n -l name -d "Output the name of the file before displaying"
@@ -7,6 +7,6 @@ complete viu -s r -l recursive -d "Recurse down directories if passed one"
 complete viu -s s -l static -d "Show only first frame of gif"
 complete viu -s t -l transparent -d "Display transparent image with transparent background"
 complete viu -s V -l version -d "Prints version information"
-complete viu -x -s f -l frame-rate -d "Play gif at the given frame rate"
-complete viu -x -s h -l height -d "Resize the image to a provided height"
-complete viu -x -s w -l width -d "Resize the image to a provided width"
+complete viu --exclusive -s f -l frame-rate -d "Play gif at the given frame rate"
+complete viu --exclusive -s h -l height -d "Resize the image to a provided height"
+complete viu --exclusive -s w -l width -d "Resize the image to a provided width"

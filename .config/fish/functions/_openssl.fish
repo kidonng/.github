@@ -1,12 +1,12 @@
-command -sq openssl || exit
+command --query openssl || exit
 
-set -l type (string replace .fish "" (status basename))
+set --local type (status basename | path change-extension "")
 
-function $type -d "Print $type checksum" -V type
-    set -l cmd openssl $type $argv
+function $type --description "Print $type checksum" --inherit-variable type
+    set --local cmd openssl $type $argv
 
     if isatty && ! isatty stdout
-        $cmd | string split -f 2 " "
+        $cmd | string split --fields 2 " "
     else
         $cmd
     end

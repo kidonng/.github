@@ -1,15 +1,15 @@
-functions -q _spot_buddy || exit
+functions --query _spot_buddy || exit
 
-function spot -d "Manage Spotlight exclusions"
+function spot --description "Manage Spotlight exclusions"
     argparse a/add r/remove -- $argv || return
 
-    set -l list (_spot_buddy Print :Exclusions | string trim)
-    set -e list[1] list[-1]
+    set --local list (_spot_buddy Print :Exclusions | string trim)
+    set --erase list[1] list[-1]
 
     # It seems modifying the plist doesn't work as of macOS Monterey
-    if set -q _flag_add
+    if set --query _flag_add
         for path in $argv
-            set -l real (realpath $path)
+            set --local real (realpath $path)
 
             if contains $real $list
                 echo spot: $real is already excluded >&2
@@ -18,11 +18,11 @@ function spot -d "Manage Spotlight exclusions"
 
             _spot_buddy Add :Exclusions: string $real
         end
-    else if set -q _flag_remove
+    else if set --query _flag_remove
         for path in $argv
-            set -l real (realpath $path)
+            set --local real (realpath $path)
 
-            if ! set -l index (contains -i $real $list)
+            if ! set --local index (contains --index $real $list)
                 echo spot: $real is not excluded >&2
                 continue
             end

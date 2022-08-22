@@ -1,6 +1,6 @@
-command -sq zoxide || exit
+command --query zoxide || exit
 
-function z -d "cd + zoxide"
+function z --description "cd + zoxide"
     switch "$argv"
         case "" -
             cd $argv
@@ -8,7 +8,7 @@ function z -d "cd + zoxide"
             if test -d "$argv"
                 cd $argv
             else
-                set -l dir (zoxide query --exclude $PWD -- $argv) && cd $dir
+                set --local dir (zoxide query --exclude $PWD -- $argv) && cd $dir
             end
     end
 end

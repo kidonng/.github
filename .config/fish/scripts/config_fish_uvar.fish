@@ -1,23 +1,24 @@
-set -Ux EDITOR nvim
-set -Ux FZF_DEFAULT_OPTS --cycle --reverse --preview-window wrap --prompt '"❯ "' --pointer '" "' --marker ✔
+set --universal --export EDITOR nvim
+set --universal --export FZF_DEFAULT_OPTS --cycle --reverse --preview-window wrap --prompt '"❯ "' --pointer '" "' --marker ✔ --bind ctrl-a:select-all,ctrl-alt-a:deselect-all
+set --universal --export HOMEBREW_BAT 1
 
-set -Ux LESS -R -i -M --incsearch
-set -Ux LESS_TERMCAP_md (set_color -o)(set_color blue)
-set -Ux LESS_TERMCAP_us (set_color -u)(set_color green)
-set -Ux LESS_TERMCAP_ue (set_color normal)
+# `--ignore-case` means smart case
+set --universal --export LESS --RAW-CONTROL-CHARS --ignore-case --LONG-PROMPT --incsearch
+set --universal --export LESS_TERMCAP_md (set_color --bold)(set_color blue)
+set --universal --export LESS_TERMCAP_us (set_color --underline)(set_color green)
+set --universal --export LESS_TERMCAP_ue (set_color normal)
 
-# set -Ux ALL_PROXY http://127.0.0.1:7890
-# set -Ux HTTPS_PROXY $ALL_PROXY
-set -Ux NO_PROXY localhost,127.0.0.1
+# set --universal --export ALL_PROXY http://127.0.0.1:7890
+# set --universal --export HTTPS_PROXY $ALL_PROXY
+set --universal --export NO_PROXY localhost,127.0.0.1
 
 # Usage: https://github.com/fish-shell/fish-shell/pull/4940
 # qmark-noglob: never used it and doesn't seem to break anything
-# ampersand-nobg-in-token: https://github.com/fish-shell/fish-shell/pull/7991
-set -U fish_features qmark-noglob ampersand-nobg-in-token
-set -U fish_greeting
+set --universal fish_features qmark-noglob
+set --universal fish_greeting
 
-set -U fzf_preview_file_cmd preview
-set -U fzf_preview_dir_cmd exa --color always -T -L 3
-set -U fzf_git_log_opts --preview "git show --color=always {1} | delta --features no-file-decoration"
+set --universal fzf_preview_file_cmd preview
+set --universal fzf_preview_dir_cmd exa --color always --tree --level 3
+set --universal fzf_git_log_opts --preview "git show --color=always {1} | delta --features no-file-decoration"
 
-set -U __done_notify_sound 1
+set --universal __done_notify_sound 1

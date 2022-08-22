@@ -1,24 +1,26 @@
-if ! command -sq sed || ! command -sq rg || ! command -sq fzf
+if ! command --query rg || ! command --query fzf
     exit
 end
 
-function sef -w rg -d "sed + fzf"
-    set -l non_opts (string match -v -- "-*" $argv)
-    set -l first_non_opt (contains -i -- $non_opts[1] $argv)
-    test "$first_non_opt" = 1 && set -l opts || set -l opts $argv[..(math $first_non_opt - 1)]
+# Inspired by https://github.com/ms-jpq/sad
+function sef --wraps rg --description "sed + ripgrep + fzf"
+    set --local non_opts (string match --invert -- "-*" $argv)
+    set --local first_non_opt (contains --index -- $non_opts[1] $argv)
+    test "$first_non_opt" = 1 && set --local opts || set --local opts $argv[..(math $first_non_opt - 1)]
 
-    if set -l sep (contains -i -- -- $argv)
+    if set --local sep (contains --index -- -- $argv)
         test $sep = 1 && set opts || set opts $argv[..(math $sep - 1)]
         set non_opts $argv[(math $sep + 1)..]
     end
 
-    set -l find $non_opts[1]
-    set -l replace $non_opts[2]
-    set -l files $non_opts[3..]
+    set --local find $non_opts[1]
+    set --local rg_find (string replace --all -- "\/" / $find)
+    set --local replace $non_opts[2]
+    set --local files $non_opts[3..]
 
-    set -l args s/$find/$replace/g
-    set -l selection (
-        rg -l $opts $find $files |
-        fzf -m --preview "diff -u {} (sed -E $args {} | psub) | delta --features no-file-decoration"
+    set --local args s/$find/$replace/g
+    set --local selection (
+        rg --files-with-matches $opts $rg_find $files |
+        fzf --multi --exit-0 --preview "diff -u {} (sed -E '$args' {} | psub) | delta --features no-file-decoration"
     ) && sed -Ei '' $args $selection
 end

@@ -1,10 +1,20 @@
-function tmpsh -w fish -d "Start fish with a temporary environment"
-    env -i HOME=(mktemp -d) PATH="$PATH" SHLVL=$SHLVL TERM=$TERM TERMINFO=$TERMINFO fish -C '
-        function _tmpsh_cleanup -V HOME -e fish_exit
-            echo Cleaning up (set_color -o)$HOME(set_color normal)
-            command rm -rf $HOME
-        end
+function tmpsh --wraps fish --description "Start fish with a temporary environment"
+    env -i \
+        HOME=(mktemp -d -t tmpsh) \
+        PATH="$PATH" \
+        SHLVL=$SHLVL \
+        TERM=$TERM \
+        TERMINFO=$TERMINFO \
+        fish --init-command '
+            function _tmpsh_cleanup --inherit-variable HOME --on-event fish_exit
+                echo Cleaning up (set_color --bold)$HOME(set_color normal)
 
-        builtin cd $HOME
+                set -l cmd rm -r
+                command --query trash && set cmd trash
+
+                $cmd $HOME
+            end
+
+            cd
     ' $argv
 end

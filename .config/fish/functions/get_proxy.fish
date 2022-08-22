@@ -1,10 +1,10 @@
-function get_proxy -d "Get system proxy"
+function get_proxy --description "Get system proxy"
     if test (uname) = Darwin
-        set -l output (scutil --proxy)
+        set --local output (scutil --proxy)
 
-        if string match -eq "HTTPEnable : 1" $output
-            set -f address (string match -r "HTTPProxy : ([\d.]+)" $output)[2]
-            set -f port (string match -r "HTTPPort : (\d+)" $output)[2]
+        if string match --entire --quiet "HTTPEnable : 1" $output
+            set --function address (string match --regex "HTTPProxy : ([\d.]+)" $output)[2]
+            set --function port (string match --regex "HTTPPort : (\d+)" $output)[2]
         end
     end
 

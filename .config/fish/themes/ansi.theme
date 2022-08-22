@@ -1,0 +1,15 @@
+# Theme-aware Fish shell color config
+# Tested with iTerm2 One Dark theme (https://github.com/joshdick/onedark.vim/blob/master/term/One%20Dark.itermcolors)
+fish_color_autosuggestion brblack
+fish_color_command 'blue'  '-o'
+fish_color_comment brblack
+fish_color_end cyan
+fish_color_error red
+fish_color_escape cyan
+fish_color_operator magenta
+fish_color_param yellow
+fish_color_quote green
+fish_color_redirection magenta
+fish_pager_color_description yellow
+fish_pager_color_prefix --bold
+fish_pager_color_progress 'black'  '--background=white'

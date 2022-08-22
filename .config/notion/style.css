@@ -1,3 +1,8 @@
+/* This thing prevents me from copying the cover image address */
+.whenContentEditable > .pseudoSelection img[src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"] {
+    visibility: hidden;
+}
+
 .notion-image-block img {
     border-radius: 3px !important;
 }

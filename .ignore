@@ -1,10 +1,12 @@
-.git
 *cache
+.git
+/.Trash
+/.bun
 /.config/dotfiles
+/.config/raycast
 /.local/share/fish/plug
 /.npm
-/.Trash
-/.vscode
+/.vscode/extensions
 /.yarn
 /Library/Caches
 node_modules

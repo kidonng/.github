@@ -1,10 +1,12 @@
-command -sq exa || exit
+command --query exa || exit
 
 function exa
-    set -p argv --group-directories-first --git
-    # COLUMNS=1: https://github.com/ogham/exa/issues/879#issuecomment-845233451
-    # --color never: https://github.com/ogham/exa/issues/955
-    isatty stdout || set -lx COLUMNS 1 || set -p argv --color never
+    if ! isatty stdout
+        # https://github.com/ogham/exa/issues/879#issuecomment-845233451
+        set --function --export COLUMNS 1
+        # https://github.com/ogham/exa/issues/955
+        set --prepend argv --color never
+    end
 
-    command exa $argv
+    command exa --group-directories-first --git $argv
 end

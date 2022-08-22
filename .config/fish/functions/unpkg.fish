@@ -1,12 +1,18 @@
-command -sq 7z || exit
+command --query pkgutil || exit
 
-function unpkg -a file -d "Unpack .pkg files"
-    set -l tmp (mktemp -d)
-    7z x $file -o$tmp
+function unpkg --description "Unpack .pkg files"
+    set --local tmp (mktemp -d -t unpkg)
 
-    for pkg in $tmp/*.pkg
-        7z x $pkg/Payload -o$pkg
-        7z x $pkg/Payload~ -o.
+    for pkg in $argv
+        set --local pkgdir $tmp/$pkg
+        pkgutil --expand $pkg $pkgdir
+
+        set --local unpacked $pkg.unpacked
+        mkdir -p $unpacked
+
+        for i in $pkgdir/*.pkg
+            tar xzf $i/Payload -C $unpacked
+        end
     end
 
     rm -r $tmp

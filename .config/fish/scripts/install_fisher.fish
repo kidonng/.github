@@ -1,2 +1,2 @@
-curl -sSL https://git.io/fisher | source
+curl -fsSL https://git.io/fisher | source
 fisher install jorgebucaran/fisher

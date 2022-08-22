@@ -1,26 +1,31 @@
-command -sq sd || exit
+if ! command --query sd || ! command --query fzf
+    exit
+end
 
 # Inspired by https://github.com/ms-jpq/sad
-function sdf -w sd -d "sd + fzf"
-    set -l index (contains -i -- -- $argv || echo 0)
-    set -l count (math $index + 3)
-    set -l args $argv[..(math $count - 1)]
+function sdf --wraps sd --description "sd + fzf"
+    set --local index (contains --index -- -- $argv || echo 0)
+    set --local count (math $index + 3)
+    set --local args $argv[..(math $count - 1)]
 
     if test (count $argv) -lt $count
         sd $argv
         return
     end
 
-    set -l files
+    set --local files
 
     for file in $argv[$count..]
         echo Processing (set_color -o)$file(set_color normal)
         test -d $file && continue
-        command diff $file (sd -p $args $file | psub) >/dev/null || set -a files $file
+        command diff $file (sd -p $args $file | psub) >/dev/null || set --append files $file
     end
 
-    set -l preview "diff -u {} (sd -p $args {} | psub)"
-    command -sq delta && set preview "$preview | delta"
+    set --local preview "diff -u {} (sd -p $args {} | psub)"
+    command --query delta && set preview "$preview | delta"
 
-    set -l selection (printf "%s\n" $files | fzf -m --preview $preview) && sd $args $selection
+    set --local selection (
+        printf "%s\n" $files |
+        fzf --multi --preview $preview
+    ) && sd $args $selection
 end

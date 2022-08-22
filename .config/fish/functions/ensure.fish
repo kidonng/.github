@@ -1,6 +1,6 @@
 # Typical usage:
 # echo hello >(ensure foo/bar/baz)
-function ensure -a file -d "Ensure parent directories of file exist"
-    mkdir -p (dirname $file)
+function ensure --argument-names file --description "Ensure parent directories of file exist"
+    mkdir -p (path dirname $file)
     echo $file
 end

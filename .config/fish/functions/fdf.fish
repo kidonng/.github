@@ -1,13 +1,13 @@
-if ! command -sq fd || ! command -sq fzf || ! functions -q _fzf_preview_file
+if ! command --query fd || ! command --query fzf || ! functions --query _fzf_preview_file
     exit
 end
 
-function fdf -w fd -d "fd + fzf"
-    test (count $argv) -lt 2 && set -p argv --strip-cwd-prefix
-    set -l selection (
+function fdf --wraps fd --description "fd + fzf"
+    test (count $argv) -lt 2 && set --prepend argv --strip-cwd-prefix
+    set --local selection (
         fd --color always $argv |
-        fzf --ansi -m --preview "_fzf_preview_file {}"
+        fzf --ansi --multi --exit-0 --preview "_fzf_preview_file {}"
     )
 
-    set -q selection[1] && printf "%s\n" $selection
+    set --query selection[1] && printf "%s\n" $selection
 end

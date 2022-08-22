@@ -1,18 +1,18 @@
-if ! command -sq rg || ! command -sq fzf || ! command -sq bat
+if ! command --query rg || ! command --query fzf || ! command --query bat
     exit
 end
 
 # Based on https://github.com/junegunn/fzf/issues/1598#issuecomment-719573480
-function rgf -w rg -d "ripgrep + fzf"
-    set -q argv[1] || set argv ""
-    set -l selection (
-        rg --color always -n $argv |
-        fzf --ansi -m -d : \
+function rgf --wraps rg --description "ripgrep + fzf"
+    set --query argv[1] || set argv ""
+    set --local selection (
+        rg --color always --line-number $argv |
+        fzf --ansi --multi --exit-0 --delimiter : \
             --with-nth 1,3 \
             --preview "bat --style header,numbers --color always --highlight-line {2} {1}" \
             --preview-window ~1:+{2}-/2 |
-        string split -f 1 :
+        string split --fields 1 :
     )
 
-    set -q selection[1] && printf "%s\n" $selection
+    set --query selection[1] && printf "%s\n" $selection
 end

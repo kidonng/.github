@@ -1,7 +1,7 @@
 function du
-    test (count (string match -v -- "-*" $argv)) -gt 1 && set -p argv -c
+    test (count (string match --invert -- "-*" $argv)) -gt 1 && set --prepend argv --total
 
-    if command -sq grc
+    if command --query grc
         grc du $argv
     else
         command du $argv

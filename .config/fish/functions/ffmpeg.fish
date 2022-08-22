@@ -1,4 +1,4 @@
-command -sq ffmpeg || exit
+command --query ffmpeg || exit
 
 function ffmpeg
     command ffmpeg -hide_banner $argv
