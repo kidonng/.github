@@ -1,12 +1,17 @@
-*cache
+# Managed
+/.config/raycast
+/.local/share/fish/generated_completions
+/.local/share/fish/plug
+/.local/share/nvim/site/pack
+/.vscode/extensions
+
+# Node
+/.npm
+node_modules
+
+# Misc
+*[Cc]ache*
 .git
 /.Trash
-/.bun
 /.config/dotfiles
-/.config/raycast
-/.local/share/fish/plug
-/.npm
-/.vscode/extensions
-/.yarn
-/Library/Caches
-node_modules
+/Library

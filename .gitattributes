@@ -1,0 +1,4 @@
+/.ignore linguist-language=Ignore-List
+
+/.config/git/config linguist-language=Git-Config
+/.config/git/ignore linguist-language=Ignore-List
