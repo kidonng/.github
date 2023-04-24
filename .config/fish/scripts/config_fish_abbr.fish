@@ -2,9 +2,7 @@ abbr cmd command
 abbr com complete
 abbr hd history delete
 abbr pfn printf "%s\n"
-abbr rp realpath
 
-abbr ma string match
 abbr re string replace
 
 abbr rm trash
