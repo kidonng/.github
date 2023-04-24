@@ -1,8 +1,33 @@
-/* This thing prevents me from copying the cover image address */
-.whenContentEditable > .pseudoSelection img[src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"] {
-    visibility: hidden;
+/* Add Songti SC to serif font */
+[style*="font-family: Lyon-Text, Georgia, ui-serif, serif;"] {
+    font-family: Lyon-Text, Georgia, Songti SC, ui-serif, serif !important;
 }
 
-.notion-image-block img {
-    border-radius: 3px !important;
+/* Show share button as icon */
+.notion-topbar-share-menu {
+    /* Hide text */
+    font-size: 0 !important;
+    /* Adjust size */
+    padding-right: 6.5px !important;
+    padding-left: 6.5px !important;
+}
+
+.notion-topbar-share-menu::before {
+    /* https://stackoverflow.com/a/42317014 */
+    content: "";
+    width: 20px;
+    height: 20px;
+    -webkit-mask-image: url("https://api.iconify.design/ion/share-social-outline.svg");
+    -webkit-mask-size: cover;
+    background-color: currentColor;
+}
+
+/* Show help button on hover */
+.notion-help-button:not(:hover) {
+    opacity: 0 !important;
+}
+
+/* Saner tab size */
+[style*="tab-size: 2"] {
+    tab-size: 4 !important;
 }
