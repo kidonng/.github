@@ -1,8 +1,6 @@
-command --query file
-and command --query base64
-or exit
+command --query base64 || exit
 
-function img2b64
-    # Do not use `openssl base64` which wraps output
-    echo "data:"(file --brief --mime-type $argv)";base64,"(base64 $file)
+function img2b64 --argument-names img
+    # `openssl base64` will wrap output
+    echo "data:"(file --brief --mime-type $img)";base64,"(base64 -i $img)
 end

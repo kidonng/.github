@@ -1,6 +1,6 @@
 function rm
     set --local resolved (string match --invert -- "-*" $argv | path resolve)
-    set --local protected $HOME
+    set --local protected ~
 
     for dir in $protected
         if contains -- $dir $resolved (path dirname -- $resolved)

@@ -1,11 +1,10 @@
-set --local bin '/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code'
-test -x $bin || exit
+command --query code || exit
 
-function code --inherit-variable bin
+function code
     # Read pipe automatically
     if ! isatty && test "$argv[-1]" != -
         set --append argv -
     end
 
-    $bin $argv
+    command code $argv
 end

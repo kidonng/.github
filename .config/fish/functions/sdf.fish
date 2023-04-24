@@ -21,11 +21,12 @@ function sdf --wraps sd --description "sd + fzf"
         command diff $file (sd -p $args $file | psub) >/dev/null || set --append files $file
     end
 
-    set --local preview "diff -u {} (sd -p $args {} | psub)"
-    command --query delta && set preview "$preview | delta"
+    command --query delta && set --local delta "| delta"
 
     set --local selection (
-        printf "%s\n" $files |
-        fzf --multi --preview $preview
+        printf %s\n $files |
+        fzf \
+            --multi \
+            --preview "diff -u {} (sd -p $args {} | psub) $delta"
     ) && sd $args $selection
 end

@@ -1,4 +1,4 @@
-command --query pkgutil || exit
+test (uname) = Darwin || exit
 
 function unpkg --description "Unpack .pkg files"
     set --local tmp (mktemp -d -t unpkg)

@@ -1,8 +1,13 @@
 function fzf_configure_bindings
+    # DO NOT move this before the function
     command --query fzf || return
 
     bind \cf _fzf_search_directory
-    bind \e\cf 'fzf_fd_opts=-H fzf_preview_dir_cmd="exa -a" _fzf_search_directory'
+    bind \e\cf '
+        fzf_fd_opts=--hidden \
+        fzf_preview_dir_cmd="$fzf_preview_dir_cmd --all" \
+        _fzf_search_directory
+    '
 
     bind \cr 'fzf_history_opts=--with-nth=4.. _fzf_search_history'
     bind \e\cr _fzf_search_history

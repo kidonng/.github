@@ -18,9 +18,14 @@ function sef --wraps rg --description "sed + ripgrep + fzf"
     set --local replace $non_opts[2]
     set --local files $non_opts[3..]
 
+    command --query delta && set --local delta "| delta --features no-file-decoration"
+
     set --local args s/$find/$replace/g
     set --local selection (
         rg --files-with-matches $opts $rg_find $files |
-        fzf --multi --exit-0 --preview "diff -u {} (sed -E '$args' {} | psub) | delta --features no-file-decoration"
+        fzf \
+            --multi \
+            --exit-0 \
+            --preview "diff -u {} (sed -E '$args' {} | psub) $delta"
     ) && sed -Ei '' $args $selection
 end

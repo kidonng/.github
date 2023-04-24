@@ -1,5 +1,6 @@
 function du
-    test (count (string match --invert -- "-*" $argv)) -gt 1 && set --prepend argv --total
+    # Display total size if more than one file
+    test (string match --invert -- "-*" $argv | count) -gt 1 && set --prepend argv -c
 
     if command --query grc
         grc du $argv

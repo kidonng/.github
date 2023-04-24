@@ -5,7 +5,7 @@ function fish_title
     end
 
     switch $PWD
-        case $HOME
+        case ~
             echo "~"
         case /
             echo /

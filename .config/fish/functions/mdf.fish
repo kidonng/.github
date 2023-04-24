@@ -1,6 +1,7 @@
-if test (uname) != Darwin || ! command --query fzf || ! functions --query _fzf_preview_file
-    exit
-end
+test (uname) = Darwin
+and command --query fzf
+and functions --query _fzf_preview_file
+or exit
 
 function mdf --wraps mdfind --description "mdfind + fzf"
     if ! set --query argv[1]
@@ -10,8 +11,10 @@ function mdf --wraps mdfind --description "mdfind + fzf"
 
     set --local selection (
         mdfind $argv |
-        fzf --multi --preview "_fzf_preview_file {}"
+        fzf \
+            --multi \
+            --preview "_fzf_preview_file {}"
     )
 
-    set --query selection[1] && printf "%s\n" $selection
+    set --query selection[1] && printf %s\n $selection
 end

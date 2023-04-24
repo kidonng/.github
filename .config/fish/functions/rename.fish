@@ -3,7 +3,8 @@ function rename --argument-names old_pattern new_pattern
 
     for file in $argv[3..]
         if ! string match --regex --quiet -- $old_pattern $file
-            set --query _flag_quiet || echo rename: (set_color -o)$file(set_color normal) does not match the old pattern >&2
+            set --query _flag_quiet
+            or echo rename: (set_color -o)$file(set_color normal) does not match the old pattern >&2
             continue
         end
 

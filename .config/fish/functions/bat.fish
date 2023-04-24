@@ -1,10 +1,11 @@
 command --query bat || exit
 
 function bat
-    test "$argv[1]" = cache || set --prepend argv --italic-text always
+    if test "$argv[1]" != cache
+        set --prepend argv \
+            --italic-text always \
+            --map-syntax "*.astro:TypeScriptReact"
+    end
 
-    command bat \
-        --map-syntax "*.astro:HTML" \
-        --map-syntax "*.njk:HTML" \
-        $argv
+    command bat $argv
 end

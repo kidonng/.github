@@ -2,17 +2,20 @@ function tmpsh --wraps fish --description "Start fish with a temporary environme
     env -i \
         HOME=(mktemp -d -t tmpsh) \
         PATH="$PATH" \
-        SHLVL=$SHLVL \
-        TERM=$TERM \
-        TERMINFO=$TERMINFO \
+        # "everything in the world breaks if it's not xterm"
+        # https://github.com/kovidgoyal/kitty/issues/2701#issuecomment-785620164
+        TERM=xterm-256color \
         fish --init-command '
-            function _tmpsh_cleanup --inherit-variable HOME --on-event fish_exit
+            # Prevent fish from generating completions
+            mkdir -p $__fish_user_data_dir/generated_completions
+
+            function _cleanup --on-event fish_exit
                 echo Cleaning up (set_color --bold)$HOME(set_color normal)
 
-                set -l cmd rm -r
+                set --local cmd rm -r
                 command --query trash && set cmd trash
 
-                $cmd $HOME
+                $cmd ~
             end
 
             cd

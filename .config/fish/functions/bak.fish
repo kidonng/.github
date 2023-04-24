@@ -1,16 +1,17 @@
 function bak --description "Backup or restore .bak files"
     for old in $argv
-        if string match --quiet "*.bak" -- (path normalize $old)
-            set --function new (path change-extension -- "" $old)
+        set --local normalized (path normalize $old)
+
+        if string match --quiet "*.bak" -- $normalized
+            set --function new (path change-extension -- "" $normalized)
         else
-            set --function new (path normalize $old).bak
+            set --function new $normalized.bak
         end
 
         set --local cmd mv $old $new
 
-        # Typical usage:
-        # string trim <(bak foo) >foo
-        if status is-command-substituion
+        # Usage: string trim <(bak foo) >foo
+        if status is-command-substitution
             # Silence potential -v message
             $cmd >/dev/null
             echo $new
