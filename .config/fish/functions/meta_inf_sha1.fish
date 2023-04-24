@@ -1,6 +1,6 @@
 command --query openssl || exit
 
-function meta_sha1 --argument-names file --description "Calculate SHA1 for META-INF"
+function meta_inf_sha1 --argument-names file
     set --local name "Name: $file"
 
     set --local sha1 (

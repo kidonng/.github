@@ -1,9 +1,9 @@
 test (uname) = Darwin || exit
 
-function spot --description "Manage Spotlight exclusions"
+function spotlight_exclusions
     argparse a/add r/remove -- $argv || return
 
-    set --local list (_spot_buddy Print :Exclusions | string trim)
+    set --local list (_spotlight_config Print :Exclusions | string trim)
     set --erase list[1] list[-1]
 
     # It seems modifying the plist doesn't work as of macOS Monterey
@@ -16,7 +16,7 @@ function spot --description "Manage Spotlight exclusions"
                 continue
             end
 
-            _spot_buddy Add :Exclusions: string $resolved
+            _spotlight_config Add :Exclusions: string $resolved
         end
     else if set --query _flag_remove
         for path in $argv
@@ -27,7 +27,7 @@ function spot --description "Manage Spotlight exclusions"
                 continue
             end
 
-            _spot_buddy Delete :Exclusions:(math $index - 1) string
+            _spotlight_config Delete :Exclusions:(math $index - 1) string
         end
     else
         if isatty stdout

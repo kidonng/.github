@@ -2,7 +2,7 @@ test (uname) = Darwin
 and command --query rsvg-convert
 or exit
 
-function svg2icns --argument-names svg --description "Convert SVG to ICNS"
+function svg_to_icns --argument-names svg
     set --local iconset (path change-extension iconset $svg)
     mkdir -p $iconset
 

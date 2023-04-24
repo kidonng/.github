@@ -10,7 +10,7 @@ function npm
 
     # Faster `npm run`
     if test "$cmd" = run && test -n "$name"
-        if set --local package (find-up package.json)
+        if set --local package (find_up package.json)
             set --local script (jq --raw-output .scripts.$name $package | string replace --all "*" "\*")
 
             if test $script != null

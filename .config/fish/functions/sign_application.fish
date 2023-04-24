@@ -1,6 +1,6 @@
 test (uname) = Darwin || exit
 
-function signapp --argument-names name --description "Sign an application with codesign"
+function sign_application --argument-names name
     set -l app "/Applications/$name.app"
     if ! test -d $app
         echo App "'$name'" does not exist >&2
