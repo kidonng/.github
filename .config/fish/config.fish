@@ -18,12 +18,18 @@ bind \e\[1\;9C end-of-line
 
 # Replace __fish_list_current_token
 if functions --query _fzf_search_directory
-    bind \el "fzf_fd_opts=--exact-depth=1 _fzf_search_directory"
-    bind \eL "begin; set --local --export fzf_fd_opts --exact-depth 1 --hidden; _fzf_search_directory; end"
+    bind \el "
+        fzf_fd_opts=(printf %s\n --exact-depth=1 --no-ignore) \
+        _fzf_search_directory
+    "
+    bind \eL "
+        fzf_fd_opts=(printf %s\n --exact-depth=1 --no-ignore --hidden) \
+        _fzf_search_directory
+    "
 end
 
 # set --unexport --query fish_private_mode && set --export fish_private_mode $fish_private_mode
-for path in ~/.local/bin ~/.deno/bin /usr/local/opt/curl/bin /usr/local/sbin
+for path in ~/.local/bin /usr/local/opt/node@18/bin /usr/local/sbin
     test -e $path && set --global --append fish_user_paths $path
 end
 
