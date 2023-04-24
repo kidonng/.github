@@ -1,7 +1,8 @@
 aliariff.auto-add-brackets
 antfu.file-nesting
+antfu.unocss
+astro-build.astro-vscode
 bmalehorn.vscode-fish
-cschleiden.vscode-github-actions
 DavidAnson.vscode-markdownlint
 denoland.vscode-deno
 eamodio.gitlens
@@ -12,8 +13,7 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 GitHub.codespaces
 GitHub.copilot
-iocave.customize-ui
-iocave.monkey-patch
+github.vscode-github-actions
 meganrogge.template-string-converter
 PKief.material-icon-theme
 pucelle.vscode-css-navigation
@@ -23,7 +23,6 @@ streetsidesoftware.code-spell-checker
 TabNine.tabnine-vscode
 Tobermory.es6-string-html
 tombonnike.vscode-status-bar-format-toggle
-voorjaar.windicss-intellisense
 vscodevim.vim
 WakaTime.vscode-wakatime
 yzhang.markdown-all-in-one
