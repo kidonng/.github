@@ -20,11 +20,6 @@ set --universal --export LESS_TERMCAP_md (set_color --bold blue)
 set --universal --export LESS_TERMCAP_us (set_color --underline green)
 set --universal --export LESS_TERMCAP_ue (set_color normal)
 
-# set --universal --export ALL_PROXY http://127.0.0.1:7890
-# set --universal --export HTTPS_PROXY $ALL_PROXY
-# set --universal --export HTTP_PROXY $ALL_PROXY
-# set --universal --export NO_PROXY localhost,127.0.0.1
-
 # Usage: https://github.com/fish-shell/fish-shell/pull/4940
 # qmark-noglob: never used it and doesn't seem to break anything
 set --universal fish_features qmark-noglob
