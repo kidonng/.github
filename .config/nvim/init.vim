@@ -35,23 +35,11 @@ _G.InitPacker = function()
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
             config = function()
-                require'nvim-treesitter.configs'.setup {
+                require 'nvim-treesitter.configs'.setup {
                     ensure_installed = 'all',
                     highlight = { enable = true },
                     incremental_selection = { enable = true },
                     indent = { enable = true }
-                }
-            end
-        }
-        use {
-            'sheerun/vim-polyglot',
-            config = function()
-                vim.g.vim_markdown_fenced_languages = {
-                    'css',
-                    'html',
-                    'js=javascript',
-                    'ts=typescript',
-                    'tsx=typescriptreact',
                 }
             end
         }
@@ -90,11 +78,12 @@ set ignorecase smartcase
 set mouse=a
 set nowrap
 
-autocmd BufNewFile,BufRead *.astro setfiletype html 
-autocmd BufNewFile,BufRead *.njk setfiletype html 
 autocmd FileType fish set wrap expandtab
 autocmd FileType markdown set wrap
 autocmd FileType mdx set wrap
+" Trim trailing white space
+" Note: may change cursor position
+" autocmd BufWritePre * %s/\s\+$//e
 
 inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
@@ -136,5 +125,5 @@ endfunction
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
+" Default color is a little unrecognizable
 highlight link CocHighlightText Visual
-

@@ -2,5 +2,6 @@
     "colors.filetypes": ["*"],
     "explorer.icon.enableNerdfont": true,
     "list.source.grep.args": ["--smart-case"],
-    "session.directory": "~/.local/share/nvim/sessions"
+    "npm.binPath": "/usr/local/bin/pnpm",
+    "session.directory": "~/.local/state/nvim/sessions"
 }
