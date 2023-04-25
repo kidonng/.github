@@ -1,7 +1,7 @@
 test (uname) = Darwin || exit
 
-function renew_dhcp -d "Renew macOS DHCP lease"
-    set -l networkservice Wi-Fi
+function renew_dhcp
+    set --local networkservice Wi-Fi
     networksetup -setbootp $networkservice
     networksetup -setdhcp $networkservice
 end
