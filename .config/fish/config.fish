@@ -30,7 +30,7 @@ end
 
 # set --unexport --query fish_private_mode && set --export fish_private_mode $fish_private_mode
 for path in ~/.local/bin /usr/local/opt/node@18/bin /usr/local/sbin
-    test -e $path && set --global --append fish_user_paths $path
+    test -e $path && fish_add_path --global --append $path
 end
 
 if set --query KITTY_INSTALLATION_DIR
