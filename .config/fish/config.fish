@@ -33,14 +33,6 @@ for path in ~/.local/bin /usr/local/opt/node@18/bin /usr/local/sbin
     test -e $path && fish_add_path --global --append $path
 end
 
-if set --query KITTY_INSTALLATION_DIR
-    set --global KITTY_SHELL_INTEGRATION no-cursor no-title
-    set --local dir $KITTY_INSTALLATION_DIR/shell-integration/fish
-
-    source $dir/vendor_conf.d/kitty-shell-integration.fish
-    set --prepend fish_complete_path $dir/vendor_completions.d
-end
-
 if command --query zoxide
     set --global pwdprev $PWD
 
