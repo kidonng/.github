@@ -1,3 +1,5 @@
+import 'https://cherry.xuann.wang/block-notion-analytics.user.js'
+
 // Slash key to focus database search
 addEventListener('keydown', (event) => {
 	if (

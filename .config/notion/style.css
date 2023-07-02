@@ -1,3 +1,5 @@
+@import "https://cdn.jsdelivr.net/gh/kidonng/cherry@75b79d723a3f2105cb28ab71005d4b28f392d780/styles/menlo-to-jetbrains-mono.user.css";
+
 /* Add Songti SC to serif font */
 [style*="font-family: Lyon-Text, Georgia, ui-serif, serif;"] {
     font-family: Lyon-Text, Georgia, Songti SC, ui-serif, serif !important;
