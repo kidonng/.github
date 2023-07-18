@@ -21,10 +21,6 @@ abbr ql qlmanage -p
 abbr stat stat -x
 abbr xe 'xargs $EDITOR'
 
-abbr dul diskutil list
-abbr dum sudo diskutil mount
-abbr duu diskutil unmount
-
 abbr cat bat -p
 abbr co code
 abbr du dust
