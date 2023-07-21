@@ -9,7 +9,8 @@ function timg
         end
     end
 
-    test $count -gt 1 && set --prepend argv -F --grid $count
+    # Enable grid automatically
+    test $count -gt 1 && set --prepend argv --grid $count
 
     # Read pipe automatically
     if ! isatty && test "$argv[-1]" != - && ! test -f "$argv[-1]"
