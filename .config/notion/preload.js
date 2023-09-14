@@ -1,5 +1,3 @@
-// echo \n'require(`${process.env.HOME}/.config/notion/preload.js`);' >> /Applications/Notion.app/Contents/Resources/app/renderer/preload.js
-
 const fs = require('node:fs')
 const {env} = require('node:process')
 
