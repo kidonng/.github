@@ -1,6 +1,6 @@
-command --query exa || exit
+command --query eza || exit
 
-function exa
+function eza
     if isatty stdout
         set --prepend argv --icons
     else
@@ -10,5 +10,5 @@ function exa
         set --prepend argv --color never
     end
 
-    command exa --group-directories-first --git $argv
+    command eza --group-directories-first --git $argv
 end

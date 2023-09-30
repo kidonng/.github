@@ -30,9 +30,9 @@ abbr vi nvim
 abbr cl curl -L
 abbr dl curl -LROJ
 
-abbr la exa -la
-abbr ll exa -l
-abbr ls exa
+abbr la eza -la
+abbr ll eza -l
+abbr ls eza
 
 abbr dot "git --git-dir ~/.config/dotfiles"
 abbr ga git add

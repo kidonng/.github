@@ -26,7 +26,7 @@ set --universal fish_features qmark-noglob
 set --universal fish_greeting
 
 set --universal fzf_preview_file_cmd preview
-set --universal fzf_preview_dir_cmd exa --color always
+set --universal fzf_preview_dir_cmd eza --color always
 
 command --query delta && set --local delta "| delta --features no-file-decoration"
 set --universal fzf_git_log_opts --preview "git show --color=always {1} $delta"
