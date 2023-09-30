@@ -28,7 +28,6 @@ if functions --query _fzf_search_directory
     "
 end
 
-# set --unexport --query fish_private_mode && set --export fish_private_mode $fish_private_mode
 for path in ~/.local/bin /usr/local/opt/node@18/bin /usr/local/sbin
     test -e $path && fish_add_path --global --append $path
 end
