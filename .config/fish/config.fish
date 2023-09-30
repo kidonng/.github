@@ -1,3 +1,8 @@
+fish_add_path --global \
+    ~/.local/bin \
+    /usr/local/opt/node@18/bin \
+    /usr/local/sbin
+
 if set --query plug_path
     source $plug_path/kidonng/plug.fish/functions/plug.fish
     plug init
@@ -26,10 +31,6 @@ if functions --query _fzf_search_directory
         fzf_fd_opts=(printf %s\n --exact-depth=1 --no-ignore --hidden) \
         _fzf_search_directory
     "
-end
-
-for path in ~/.local/bin /usr/local/opt/node@18/bin /usr/local/sbin
-    test -e $path && fish_add_path --global --append $path
 end
 
 if command --query zoxide
