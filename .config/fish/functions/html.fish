@@ -1,1 +1,0 @@
-_prettier.fish
